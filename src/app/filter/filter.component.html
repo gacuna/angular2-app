@@ -1,0 +1,14 @@
+<div class="input-group">
+  	<input type="text" class="form-control mr-1" placeholder="Buscar por" (keydown)="handleKeyDown($event)" [(ngModel)]="filter.query">
+    <span class="input-group-btn">
+        <button type="button" class="btn btn-secondary dropdown-toggle no-rounded-left-border" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          {{  filter.label }}
+        </button>
+        <div class="dropdown-menu dropdown-menu-right">
+          <span *ngFor="let condition of searchConditions" class="dropdown-item" (click)="setCondition(condition)">{{condition.description}}</span>
+        </div>
+    </span>
+    <button type="button" class="btn btn-secondary ml-1" (click)="changeFilter()">
+      <i class="fa fa-search" aria-hidden="true"></i>
+    </button>
+</div>	

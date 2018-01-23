@@ -8,22 +8,25 @@ import { RouterModule, Routes, Router } from '@angular/router';
 import { appRoutes } from './app.routes';
 
 import { AppComponent } from './app.component';
-import { UserListComponent } from './users/user-list/user-list.component';
-import { UserCrudComponent } from './users/user-crud/user-crud.component';
+import { UsersComponent } from './users/users.component';
+import { FilterComponent } from './filter/filter.component';
+
+// Services
+import { UsersService } from './services/users.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserListComponent,
-    UserCrudComponent
+    UsersComponent,
+    FilterComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(appRoutes)    
+    RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [UsersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
