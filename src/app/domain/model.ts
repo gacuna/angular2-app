@@ -38,3 +38,10 @@ export class SearchFilter {
     return this.query; // este es el valor a buscar. EG: esteban
   }
 }
+
+export class ModalMessage {
+  type: string;
+  content: string;
+
+  constructor() {}
+}

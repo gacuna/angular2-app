@@ -1,0 +1,41 @@
+  <!-- (OK only) Modal -->
+  <div class="modal fade" bsModal #okOnly="bs-modal" [config]="{backdrop: 'static'}" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-md">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" aria-label="Close" (click)="close()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h4 class="modal-title">{{title}}</h4>
+        </div>
+        <div class="modal-body">
+          {{content}}
+        </div>
+        <div class="modal-footer">
+          <button type="button" (click)="close()" class="btn">Aceptar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- (OK|CANCEL) Modal -->
+  <div class="modal fade" bsModal #okCancel="bs-modal" [config]="{backdrop: 'static'}" tabindex="-2" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-md">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" aria-label="Close" (click)="close()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h4 class="modal-title">{{title}}</h4>
+        </div>
+        <div class="modal-body">
+          {{content}}
+        </div>
+        <div class="modal-footer">
+          <button type="button" (click)="cancel()" data-dismiss="okCancelModal" class="btn">Cancelar</button>
+          <button type="button" (click)="confirm()" class="btn">Aceptar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <input type="hidden" name="show" [ngModel]="show">

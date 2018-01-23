@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes, Router } from '@angular/router';
+import { ModalModule } from 'ngx-bootstrap';
 
 // Configs
 import { appRoutes } from './app.routes';
@@ -13,17 +14,20 @@ import { FilterComponent } from './filter/filter.component';
 
 // Services
 import { UsersService } from './services/users.service';
+import { ModalComponent } from './modal/modal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UsersComponent,
-    FilterComponent
+    FilterComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
+    ModalModule.forRoot(),
     RouterModule.forRoot(appRoutes)
   ],
   providers: [UsersService],

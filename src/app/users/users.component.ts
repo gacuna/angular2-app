@@ -15,6 +15,9 @@ export class UsersComponent implements OnInit {
 
   actualFilter: SearchFilter;
 
+  backButtonPressedModal: boolean;
+  saveButtonPressedModal: boolean;
+
   constructor(private userService: UsersService) { }
 
   ngOnInit() {
@@ -34,6 +37,42 @@ export class UsersComponent implements OnInit {
 
   edit(user: User) {
   	this.selectedUser = user;
+  }
+
+    back() {
+    this.backButtonPressedModal = true;
+    //this.cdr.detectChanges();
+  }
+
+  save() {
+    this.saveButtonPressedModal = true;
+  }
+
+  handleBackButton(action: string) {
+    if (action == "confirm") {
+      this.selectedUser = undefined;
+    }
+
+    this.backButtonPressedModal = false;
+    //this.cdr.detectChanges();
+  }
+
+  handleSaveButton(action: string) {
+    this.saveButtonPressedModal = false;
+    
+	/*
+    if (action == "confirm") {
+      this.crudableService.update(this.baseUrl + 'users', this.selectedUser, this.selectedUser.id).subscribe(res => {
+        this.selectedUser = undefined;
+        this.cdr.detectChanges();
+      }, err => {
+        this.errorMessage = 'Hubo un error interno al guardar el usuario';
+        this.cdr.detectChanges();
+      });
+    } else {
+      this.selectedUser = undefined;
+      this.cdr.detectChanges();      
+    }*/
   }
 
 }
