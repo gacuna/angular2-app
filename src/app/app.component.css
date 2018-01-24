@@ -1,0 +1,17 @@
+#navbarCustom {
+	background-color: #2a3547;
+}
+
+#navbarCustom #titulo {
+	color: #eee;
+	font-size: 150%;
+}
+
+.footer {
+	position: fixed;
+  	left: 0;
+   	bottom: 0;
+   	width: 300%;
+   	background-color: #2a3547;
+   	color: #eee;
+}
