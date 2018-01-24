@@ -28,14 +28,13 @@ export class UsersComponent implements OnInit {
     this.searchConditions.push(new SearchCondition("Nombre", "firstName"));
     this.searchConditions.push(new SearchCondition("Apellido", "lastName"));
     this.actualFilter = undefined;
-    //this.searchUsers(this.actualFilter);
   }
 
   searchUsers(filter: SearchFilter) {
   	this.userService.findUsers().subscribe(response => {
-        if (!filter)
+        if (!filter || !filter.getQuery())
         	this.users = response;
-        else {
+        else if (filter.getQuery()){
         	switch (filter.getLabelValue()) {
         		case "email":
 		        	this.users = response.filter(item => item.email.startsWith(filter.getQuery()));
