@@ -28,10 +28,10 @@ export class UsersComponent implements OnInit {
     this.searchConditions.push(new SearchCondition("Nombre", "firstName"));
     this.searchConditions.push(new SearchCondition("Apellido", "lastName"));
     this.actualFilter = undefined;
-    this.searchUsers(this.actualFilter, false);
+    //this.searchUsers(this.actualFilter);
   }
 
-  searchUsers(filter: SearchFilter, changeOffset?: boolean) {
+  searchUsers(filter: SearchFilter) {
   	this.userService.findUsers().subscribe(response => {
         if (!filter)
         	this.users = response;
@@ -47,7 +47,6 @@ export class UsersComponent implements OnInit {
 		        	this.users = response.filter(item => item.lastName.startsWith(filter.getQuery()));
     				break;
         		default:
-        			// code...
         			break;
         	}
         }
@@ -58,9 +57,8 @@ export class UsersComponent implements OnInit {
   	this.selectedUser = user;
   }
 
-    back() {
+  back() {
     this.backButtonPressedModal = true;
-    //this.cdr.detectChanges();
   }
 
   save() {
@@ -70,28 +68,25 @@ export class UsersComponent implements OnInit {
   handleBackButton(action: string) {
     if (action == "confirm") {
       this.selectedUser = undefined;
+      this.searchUsers(this.actualFilter);
     }
 
     this.backButtonPressedModal = false;
-    //this.cdr.detectChanges();
   }
 
   handleSaveButton(action: string) {
     this.saveButtonPressedModal = false;
     
-	/*
     if (action == "confirm") {
+      /*
       this.crudableService.update(this.baseUrl + 'users', this.selectedUser, this.selectedUser.id).subscribe(res => {
         this.selectedUser = undefined;
-        this.cdr.detectChanges();
       }, err => {
         this.errorMessage = 'Hubo un error interno al guardar el usuario';
-        this.cdr.detectChanges();
-      });
+      });*/
     } else {
       this.selectedUser = undefined;
-      this.cdr.detectChanges();      
-    }*/
+    }
   }
 
 }
