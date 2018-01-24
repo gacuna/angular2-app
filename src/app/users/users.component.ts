@@ -18,6 +18,8 @@ export class UsersComponent implements OnInit {
   backButtonPressedModal: boolean;
   saveButtonPressedModal: boolean;
 
+  errorMessage: string;
+
   constructor(private userService: UsersService) { }
 
   ngOnInit() {
@@ -31,8 +33,25 @@ export class UsersComponent implements OnInit {
 
   searchUsers(filter: SearchFilter, changeOffset?: boolean) {
   	this.userService.findUsers().subscribe(response => {
-        this.users = response;
-    });  	
+        if (!filter)
+        	this.users = response;
+        else {
+        	switch (filter.getLabelValue()) {
+        		case "email":
+		        	this.users = response.filter(item => item.email.startsWith(filter.getQuery()));
+        			break;
+        		case "firstName":
+		        	this.users = response.filter(item => item.firstName.startsWith(filter.getQuery()));
+        			break;
+    			case "lastName":
+		        	this.users = response.filter(item => item.lastName.startsWith(filter.getQuery()));
+    				break;
+        		default:
+        			// code...
+        			break;
+        	}
+        }
+    });
   }
 
   edit(user: User) {
