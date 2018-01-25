@@ -15,13 +15,15 @@ import { FilterComponent } from './filter/filter.component';
 // Services
 import { UsersService } from './services/users.service';
 import { ModalComponent } from './modal/modal.component';
+import { DeliveryComponent } from './delivery/delivery.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UsersComponent,
     FilterComponent,
-    ModalComponent
+    ModalComponent,
+    DeliveryComponent
   ],
   imports: [
     BrowserModule,
