@@ -35,7 +35,7 @@ export class DeliveryService {
       .catch(this.handleError);
   }  
 
-  add(delivery: Delivery): Observable<Delivery> {
+  create(delivery: Delivery): Observable<Delivery> {
     const newDelivery = Object.assign({}, delivery);
 
     return this.http.post(this.deliveriesUrl, newDelivery, cudOptions)
