@@ -12,7 +12,7 @@ export class Delivery {
   address: string;
   openingTime: number;
   closingTime: number;
-  tel: string;
+  phoneNumber: string;
   admContact: Contact;
   commercialContact: Contact;
 }
@@ -20,7 +20,7 @@ export class Delivery {
 export class Contact {
   name: string;
   lastName: string;
-  tel: string;
+  phoneNumber: string;
   email: string;
   isAdmContact: boolean;
 }
