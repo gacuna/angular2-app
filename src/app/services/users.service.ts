@@ -12,13 +12,13 @@ const cudOptions = { headers: new Headers({ 'Content-Type': 'application/json' }
 @Injectable()
 export class UsersService {
 
-  private _data: Array<User>;
-  private _usersUrl: string = 'api/users';
+  private data: Array<User>;
+  private usersUrl: string = 'api/users';
 
   constructor(private http: Http) { }
 
   findUsers(filter?: SearchFilter): Observable<User[]> {
-    let url = `${this._usersUrl}`;
+    let url = `${this.usersUrl}`;
     
     if (filter.value)
       url += `${filter.getSearchQuery()}`;
@@ -30,7 +30,7 @@ export class UsersService {
   }
 
   get(id: string): Observable<User> {
-    const url = `${this._usersUrl}/${id}`;
+    const url = `${this.usersUrl}/${id}`;
     return this.http.get(url)
       .catch(this.handleError);
   }  
@@ -38,20 +38,20 @@ export class UsersService {
   add(user: User): Observable<User> {
     const newUser = Object.assign({}, user);
 
-    return this.http.post(this._usersUrl, newUser, cudOptions)
+    return this.http.post(this.usersUrl, newUser, cudOptions)
       .catch(this.handleError);
   }
 
   delete(user: User | number): Observable<User> {
     const id = typeof user === 'number' ? user : user.id;
-    const url = `${this._usersUrl}/${id}`;
+    const url = `${this.usersUrl}/${id}`;
 
     return this.http.delete(url, cudOptions)
       .catch(this.handleError);
   }
 
   update(user: User): Observable<null> {
-    return this.http.put(this._usersUrl, user, cudOptions)
+    return this.http.put(this.usersUrl, user, cudOptions)
       .catch(this.handleError);
   }  
 

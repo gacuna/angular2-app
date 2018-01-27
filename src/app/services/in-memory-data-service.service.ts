@@ -9,9 +9,55 @@ export class InMemUserService implements InMemoryDbService {
     ];
 
     let deliveries = [
-    	{ "id": 1, "name": "Pizza Bender", "phone": "4555-4455"},
-    	{ "id": 2, "name": "Helados Chupala", "phone": "4155-3333"}
-    ];
+		{
+	      "id":1,
+	      "name":"Pizza Bender",
+	      "description":"Pizzeria de mala muerte",
+	      "specialities": "Pizza de Cannabis",
+	      "address": "Calle Falsa 123",
+	      "openingTime": 20,
+	      "closingTime": 1,
+	      "phone":"4555-4455",
+	      "admContact": {
+	      	"name": "Hermi",
+	      	"lastName": "Marmota",
+	      	"phoneNumber": "4431-1122",
+	      	"email": "hermi@hermi.com",
+	      	"isAdmContact": true
+	      },
+	      "commercialContact": {
+	      	"name": "Hermi",
+	      	"lastName": "Marmota",
+	      	"phoneNumber": "4431-1122",
+	      	"email": "hermi@hermi.com",
+	      	"isAdmContact": false
+	      }
+		},
+		{
+	      "id":2,
+	      "name":"Helados Chupala",
+	      "description":"Heladeria de Barrio",
+	      "specialities": "Helados con babosas",
+	      "address": "x Colectora",
+	      "phone":"4155-3333",
+	      "openingTime": 20,
+	      "closingTime": 1,
+	      "admContact": {
+	      	"name": "Bender",
+	      	"lastName": "Rodriguez",
+	      	"phoneNumber": "1231-0001",
+	      	"email": "Bender@Bender.com",
+	      	"isAdmContact": true
+	      },
+	      "commercialContact": {
+	      	"name": "Bender",
+	      	"lastName": "Rodriguez",
+	      	"phoneNumber": "1231-0001",
+	      	"email": "Bender@Bender.com",
+	      	"isAdmContact": false
+	      }	      
+		}
+	];
 
     return {users, deliveries};
   }

@@ -1,3 +1,4 @@
+//Domain Classes
 export class User {
   id: number;
 	firstName: string;
@@ -6,9 +7,10 @@ export class User {
 }
 
 export class Delivery {
+  id: number;
   name: string;
   description: string;
-  specialties: string;
+  specialities: string;
   address: string;
   openingTime: number;
   closingTime: number;
@@ -25,6 +27,8 @@ export class Contact {
   isAdmContact: boolean;
 }
 
+
+//Filter Classes
 export class SearchCondition {
   description: string;
   entityPropertyName: string;
@@ -47,6 +51,7 @@ export class SearchFilter {
   }
 }
 
+// MOdal Classes
 export class ModalMessage {
   type: string;
   content: string;
