@@ -17,7 +17,7 @@ export class InMemUserService implements InMemoryDbService {
 	      "address": "Calle Falsa 123",
 	      "openingTime": 20,
 	      "closingTime": 1,
-	      "phone":"4555-4455",
+	      "phoneNumber":"4555-4455",
 	      "admContact": {
 	      	"name": "Hermi",
 	      	"lastName": "Marmota",
@@ -39,7 +39,7 @@ export class InMemUserService implements InMemoryDbService {
 	      "description":"Heladeria de Barrio",
 	      "specialities": "Helados con babosas",
 	      "address": "x Colectora",
-	      "phone":"4155-3333",
+	      "phoneNumber":"4155-3333",
 	      "openingTime": 20,
 	      "closingTime": 1,
 	      "admContact": {
