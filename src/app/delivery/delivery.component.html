@@ -18,6 +18,7 @@
 					<th>Contacto Administrativo</th>
 					<th>Contacto Comercial</th>
 					<th class="text-center">Editar</th>
+					<th class="text-center">Eliminar</th>
 				</thead>
 				<tbody>
 					<tr *ngFor="let delivery of deliveries">
@@ -30,7 +31,8 @@
 						<td>{{delivery.phoneNumber}}</td>
 						<td>{{delivery.admContact.name}} {{delivery.admContact.lastName}}</td>
 						<td>{{delivery.commercialContact.name}} {{delivery.commercialContact.lastName}}</td>
-						<td class="text-center"><i (click)="edit(delivery)" class="fa fa-pencil fa-clickeable-mc" aria-hidden="true"></i></td>
+						<td class="text-center"><i (click)="edit(delivery)" class="fa fa-pencil" aria-hidden="true"></i></td>
+						<td class="text-center"><i (click)="delete(delivery)" class="fa fa-trash-o" aria-hidden="true"></i></td>						
 					</tr>
 				</tbody>
 			</table>

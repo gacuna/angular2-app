@@ -36,16 +36,22 @@ export class DeliveryComponent implements OnInit {
     });
   }
 
-  edit(delivery: Delivery) {
-  	this.selectedDelivery = delivery;
-  }
-
   back() {
     this.backButtonPressedModal = true;
   }
 
   save() {
     this.saveButtonPressedModal = true;
+  }
+
+  edit(delivery: Delivery) {
+  	this.selectedDelivery = delivery;
+  }
+
+  delete(delivery: Delivery) {
+  	this.deliveryService.delete(delivery).subscribe(res => {
+  		this.searchDeliveries(this.actualFilter);
+  	})
   }
 
   handleBackButton(action: string) {

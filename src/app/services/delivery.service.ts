@@ -20,7 +20,7 @@ export class DeliveryService {
   findDeliveries(filter?: SearchFilter): Observable<Delivery[]> {
     let url = `${this.deliveriesUrl}`;
     
-    if (filter.value)
+    if (filter && filter.value)
       url += filter.getSearchQuery();
 	  
     return this.http
