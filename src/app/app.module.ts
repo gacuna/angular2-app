@@ -10,7 +10,6 @@ import { ModalModule } from 'ngx-bootstrap';
 import { appRoutes } from './app.routes';
 
 import { AppComponent } from './app.component';
-import { UsersComponent } from './users/users.component';
 import { FilterComponent } from './filter/filter.component';
 import { DeliveryComponent } from './delivery/delivery.component';
 
@@ -23,7 +22,6 @@ import { InMemUserService } from './services/in-memory-data-service.service';
 @NgModule({
   declarations: [
     AppComponent,
-    UsersComponent,
     FilterComponent,
     ModalComponent,
     DeliveryComponent
