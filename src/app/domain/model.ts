@@ -1,4 +1,5 @@
 export class User {
+  id: number;
 	firstName: string;
 	lastName: string;
 	email: string;
@@ -35,7 +36,7 @@ export class SearchFilter {
   }
 
   getQuery() {
-    return this.query; // este es el valor a buscar. EG: esteban
+    return this.query; // este es el valor a buscar. EG: hermi
   }
 }
 
