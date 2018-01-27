@@ -47,7 +47,8 @@ export class SearchFilter {
   constructor() {}
 
   getSearchQuery() {
-    return `?${this.key}=^${this.value}`;
+    //In-Memory-Backend permite expresiones regulares
+    return `?${this.key}=${this.value}+`;
   }
 }
 
