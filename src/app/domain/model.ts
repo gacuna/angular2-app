@@ -1,8 +1,27 @@
 export class User {
-  id: number;
 	firstName: string;
 	lastName: string;
 	email: string;
+}
+
+export class Delivery {
+  name: string;
+  description: string;
+  specialties: string;
+  address: string;
+  openingTime: number;
+  closingTime: number;
+  tel: string;
+  admContact: Contact;
+  commercialContact: Contact;
+}
+
+export class Contact {
+  name: string;
+  lastName: string;
+  tel: string;
+  email: string;
+  isAdmContact: boolean;
 }
 
 export class SearchCondition {
@@ -36,7 +55,7 @@ export class SearchFilter {
   }
 
   getQuery() {
-    return this.query; // este es el valor a buscar. EG: hermi
+    return this.query; // este es el valor a buscar. EG: esteban
   }
 }
 
