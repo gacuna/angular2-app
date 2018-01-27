@@ -1,25 +1,67 @@
 import { Injectable } from '@angular/core';
 import { Response, Http, URLSearchParams, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
-import { User } from '../domain/model';
+import { User, SearchCondition, SearchFilter } from '../domain/model';
+import 'rxjs/add/observable/throw';
+import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
+
+const cudOptions = { headers: new Headers({ 'Content-Type': 'application/json' })};
 
 @Injectable()
 export class UsersService {
 
-  _data: Array<User>;
+  private _data: Array<User>;
+  private _usersUrl: string = 'api/users';
 
   constructor(private http: Http) { }
 
-  findUsers() {
-	return this.http
-	        .get('../assets/users.json')
-	        .map(this._extractData);
+  findUsers(filter?: SearchFilter): Observable<User[]> {
+    let url = `${this._usersUrl}`;
+    
+    if (filter.value)
+      url += `${filter.getSearchQuery()}`;
+	  
+    return this.http
+	    .get(url)
+	    .map(this._extractData)
+      .catch(this.handleError);
   }
 
+  getUser(id: string): Observable<User> {
+    const url = `${this._usersUrl}/${id}`;
+    return this.http.get(url)
+      .catch(this.handleError);
+  }  
+
+  addUser(user: User): Observable<User> {
+    const newUser = Object.assign({}, user);
+
+    return this.http.post(this._usersUrl, newUser, cudOptions)
+      .catch(this.handleError);
+  }
+
+  deleteUser(user: User | number): Observable<User> {
+    const id = typeof user === 'number' ? user : user.id;
+    const url = `${this._usersUrl}/${id}`;
+
+    return this.http.delete(url, cudOptions)
+      .catch(this.handleError);
+  }
+
+  updateUser(user: User): Observable<null> {
+    return this.http.put(this._usersUrl, user, cudOptions)
+      .catch(this.handleError);
+  }  
+
   private _extractData(res: Response) {
-    let body =  res.json() || {};
+    let body = res.json() || {};
     return body;
   }
 
+  private handleError(error: any) {
+    console.error(error);
+    return Observable.throw(error);
+  }
 }

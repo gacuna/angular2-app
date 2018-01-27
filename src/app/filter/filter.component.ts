@@ -23,7 +23,7 @@ export class FilterComponent implements OnInit {
     if (!this.filter) {
       this.filter = new SearchFilter();
       this.filter.label = this.searchConditions[0].description;
-      this.filter.labelValue = this.searchConditions[0].entityPropertyName;
+      this.filter.key = this.searchConditions[0].entityPropertyName;
     }
   	
   	this.changeFilter();
@@ -35,7 +35,7 @@ export class FilterComponent implements OnInit {
 
   setCondition(condition: SearchCondition) {
     this.filter.label = condition.description;
-  	this.filter.labelValue = condition.entityPropertyName;
+  	this.filter.key = condition.entityPropertyName;
   }
 
   handleKeyDown(event: any) {

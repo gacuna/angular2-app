@@ -24,31 +24,15 @@ export class UsersComponent implements OnInit {
 
   ngOnInit() {
     this.searchConditions = new Array<SearchCondition>();
-    this.searchConditions.push(new SearchCondition("E-mail", "email"));
     this.searchConditions.push(new SearchCondition("Nombre", "firstName"));
     this.searchConditions.push(new SearchCondition("Apellido", "lastName"));
+    this.searchConditions.push(new SearchCondition("E-mail", "email"));
     this.actualFilter = undefined;
   }
 
   searchUsers(filter: SearchFilter) {
-  	this.userService.findUsers().subscribe(response => {
-        if (!filter || !filter.getQuery())
-        	this.users = response;
-        else if (filter.getQuery()){
-        	switch (filter.getLabelValue()) {
-        		case "email":
-		        	this.users = response.filter(item => item.email.startsWith(filter.getQuery()));
-        			break;
-        		case "firstName":
-		        	this.users = response.filter(item => item.firstName.startsWith(filter.getQuery()));
-        			break;
-    			case "lastName":
-		        	this.users = response.filter(item => item.lastName.startsWith(filter.getQuery()));
-    				break;
-        		default:
-        			break;
-        	}
-        }
+  	this.userService.findUsers(filter).subscribe(response => {
+	   	this.users = response;
     });
   }
 
@@ -77,12 +61,11 @@ export class UsersComponent implements OnInit {
     this.saveButtonPressedModal = false;
     
     if (action == "confirm") {
-      /*
-      this.crudableService.update(this.baseUrl + 'users', this.selectedUser, this.selectedUser.id).subscribe(res => {
+      this.userService.update(this.baseUrl + 'users', this.selectedUser, this.selectedUser.id).subscribe(res => {
         this.selectedUser = undefined;
       }, err => {
         this.errorMessage = 'Hubo un error interno al guardar el usuario';
-      });*/
+      });
     } else {
       this.selectedUser = undefined;
     }
