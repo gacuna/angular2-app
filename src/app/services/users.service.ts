@@ -29,20 +29,20 @@ export class UsersService {
       .catch(this.handleError);
   }
 
-  getUser(id: string): Observable<User> {
+  get(id: string): Observable<User> {
     const url = `${this._usersUrl}/${id}`;
     return this.http.get(url)
       .catch(this.handleError);
   }  
 
-  addUser(user: User): Observable<User> {
+  add(user: User): Observable<User> {
     const newUser = Object.assign({}, user);
 
     return this.http.post(this._usersUrl, newUser, cudOptions)
       .catch(this.handleError);
   }
 
-  deleteUser(user: User | number): Observable<User> {
+  delete(user: User | number): Observable<User> {
     const id = typeof user === 'number' ? user : user.id;
     const url = `${this._usersUrl}/${id}`;
 
@@ -50,7 +50,7 @@ export class UsersService {
       .catch(this.handleError);
   }
 
-  updateUser(user: User): Observable<null> {
+  update(user: User): Observable<null> {
     return this.http.put(this._usersUrl, user, cudOptions)
       .catch(this.handleError);
   }  

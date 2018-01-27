@@ -61,7 +61,7 @@ export class UsersComponent implements OnInit {
     this.saveButtonPressedModal = false;
     
     if (action == "confirm") {
-      this.userService.update(this.baseUrl + 'users', this.selectedUser, this.selectedUser.id).subscribe(res => {
+      this.userService.update(this.selectedUser).subscribe(res => {
         this.selectedUser = undefined;
       }, err => {
         this.errorMessage = 'Hubo un error interno al guardar el usuario';
