@@ -25,7 +25,6 @@ export class ModalComponent implements OnInit {
 
   @ViewChild('okOnly') public okOnlyModal: ModalDirective;
   @ViewChild('okCancel') public okCancelModal: ModalDirective;
-  @ViewChild('crudDelivery') public crudDeliveryModal: ModalDirective;
 
   private _modalInstance: ModalDirective;
 
@@ -35,17 +34,14 @@ export class ModalComponent implements OnInit {
 
   ngOnInit() {}
 
-  ngOnChanges() {    
+  ngOnChanges() {
     if (this.show) {
       switch (this.type) {
         case "okOnly":
           this.okOnlyModal.show();
           break;
         case "okCancel":
-          this.okCancelModal.show();        
-          break;
-        case "crudDelivery":
-          this.crudDeliveryModal.show();
+          this.okCancelModal.show();
           break;
         default:
           break;
@@ -74,10 +70,7 @@ export class ModalComponent implements OnInit {
         this.okOnlyModal.hide();
         break;
       case "okCancel":
-        this.okCancelModal.hide();        
-        break;
-      case "crudDelivery":
-        this.crudDeliveryModal.hide();
+        this.okCancelModal.hide();
         break;
       default:
         break;

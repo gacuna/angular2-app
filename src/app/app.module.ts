@@ -18,13 +18,15 @@ import { UsersService } from './services/users.service';
 import { DeliveryService } from './services/delivery.service';
 import { ModalComponent } from './modal/modal.component';
 import { InMemUserService } from './services/in-memory-data-service.service';
+import { DeliveryCrudComponent } from './delivery/delivery-crud/delivery-crud.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FilterComponent,
     ModalComponent,
-    DeliveryComponent
+    DeliveryComponent,
+    DeliveryCrudComponent
   ],
   imports: [
     BrowserModule,

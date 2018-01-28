@@ -10,6 +10,8 @@ import { Delivery, SearchCondition, SearchFilter } from '../domain/model';
 export class DeliveryComponent implements OnInit {
 
   selectedDelivery: Delivery;
+  deliveryToDelete: Delivery;
+
   deliveries: Array<Delivery>;
   searchConditions: Array<SearchCondition>;
 
@@ -17,6 +19,7 @@ export class DeliveryComponent implements OnInit {
 
   backButtonPressedModal: boolean;
   saveButtonPressedModal: boolean;
+  deleteButtonPressedModal: boolean;
 
   errorMessage: string;
 
@@ -24,7 +27,7 @@ export class DeliveryComponent implements OnInit {
 
   ngOnInit() {
     this.searchConditions = new Array<SearchCondition>();
-    this.searchConditions.push(new SearchCondition("Nombre", "name"));    
+    this.searchConditions.push(new SearchCondition("Nombre", "name"));
     this.searchConditions.push(new SearchCondition("Telefono", "phoneNumber"));
     this.searchConditions.push(new SearchCondition("Direccion", "address"));
     this.actualFilter = undefined;
@@ -53,23 +56,26 @@ export class DeliveryComponent implements OnInit {
   }
 
   delete(delivery: Delivery) {
-  	this.deliveryService.delete(delivery).subscribe(res => {
-  		this.searchDeliveries(this.actualFilter);
-  	})
+    this.deliveryToDelete = delivery;
+    this.deleteButtonPressedModal = true;
   }
 
-  handleBackButton(action: string) {
+  handleAction(action: string) {
+    console.log(`delivery action ${action}`);
+  }
+
+  private handleBackButton(action: string) {
+    this.backButtonPressedModal = false;
+
     if (action == "confirm") {
       this.selectedDelivery = undefined;
       this.searchDeliveries(this.actualFilter);
     }
-
-    this.backButtonPressedModal = false;
   }
 
-  handleSaveButton(action: string) {
+  private handleSaveButton(action: string) {
     this.saveButtonPressedModal = false;
-    
+
     if (action == "confirm") {
       this.deliveryService.update(this.selectedDelivery).subscribe(res => {
         this.selectedDelivery = undefined;
@@ -78,6 +84,16 @@ export class DeliveryComponent implements OnInit {
       });
     } else {
       this.selectedDelivery = undefined;
+    }
+  }
+
+  private handleDeleteButton(action: string) {
+    this.deleteButtonPressedModal = false;
+
+    if (action == "confirm") {
+      this.deliveryService.delete(this.deliveryToDelete).subscribe(res => {
+        this.searchDeliveries(this.actualFilter);
+      })
     }
   }
 
