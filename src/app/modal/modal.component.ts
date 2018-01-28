@@ -25,21 +25,30 @@ export class ModalComponent implements OnInit {
 
   @ViewChild('okOnly') public okOnlyModal: ModalDirective;
   @ViewChild('okCancel') public okCancelModal: ModalDirective;
+  @ViewChild('crudDelivery') public crudDeliveryModal: ModalDirective;
 
   private _modalInstance: ModalDirective;
 
   constructor() {
-  	console.log('modal instance');
+  	//console.log('modal instance');
   }
 
   ngOnInit() {}
 
   ngOnChanges() {    
     if (this.show) {
-      if (this.type === "okOnly") {
-        this.okOnlyModal.show();
-      } else {
-        this.okCancelModal.show();
+      switch (this.type) {
+        case "okOnly":
+          this.okOnlyModal.show();
+          break;
+        case "okCancel":
+          this.okCancelModal.show();        
+          break;
+        case "crudDelivery":
+          this.crudDeliveryModal.show();
+          break;
+        default:
+          break;
       }
     }
   }
@@ -60,10 +69,18 @@ export class ModalComponent implements OnInit {
   }
 
   private hide() {
-    if (this.type === "okOnly") {
-      this.okOnlyModal.hide();
-    } else {
-      this.okCancelModal.hide();        
+    switch (this.type) {
+      case "okOnly":
+        this.okOnlyModal.hide();
+        break;
+      case "okCancel":
+        this.okCancelModal.hide();        
+        break;
+      case "crudDelivery":
+        this.crudDeliveryModal.hide();
+        break;
+      default:
+        break;
     }
   }
 

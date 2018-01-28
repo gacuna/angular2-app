@@ -44,6 +44,10 @@ export class DeliveryComponent implements OnInit {
     this.saveButtonPressedModal = true;
   }
 
+  add() {
+  	this.selectedDelivery = undefined;
+  }
+
   edit(delivery: Delivery) {
   	this.selectedDelivery = delivery;
   }

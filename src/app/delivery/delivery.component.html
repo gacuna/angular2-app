@@ -38,37 +38,8 @@
 			</table>
 		</div>		
 	</div>
-	<!-- Detalle -->
-	<div class="row pt-3 pb-3" *ngIf="selectedDelivery">
-		<div class="col-12">
-			<h3>Edición del Comercio</h3>
-		</div>
-		<form #deliveryForm="ngForm" class="col-12">
-			<div class="row">
-				<div class="col-6">
-				    <div class="form-group">
-				      <label for="name">Nombre</label>
-				      <input type="text" class="form-control" [(ngModel)]="selectedDelivery.name" name="name" #name="ngModel" [ngClass]="{'has-error' : !name.valid && name.touched}" maxlength="50" required>
-				    </div>
-				</div>
-				<div class="col-6">
-				    <div class="form-group">
-				      <label for="description">Descripci&oacute;n</label>
-				      <input type="text" class="form-control" [(ngModel)]="selectedDelivery.description" name="description"
-				      #description="ngModel" [ngClass]="{'has-error' : !description.valid && description.touched}" maxlength="30" required>
-				    </div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-12">
-			      <button type="button" (click)="back()" class="btn">Volver</button>
-			      <button type="submit" (click)="save()" class="btn" [disabled]="!deliveryForm.valid">Guardar</button>
-				</div>
-			</div>
-		</form>
-		<!-- Modal para cuando se presiona el boton volver -->
-		<app-modal type="okCancel" [show]="backButtonPressedModal" title="Edición de Comercio" content="Esta seguro que desea salir?" (eventEmitter)="handleBackButton($event)"></app-modal>
-		<!-- Modal para cuando se presiona el boton guardar -->
-		<app-modal type="okCancel" [show]="saveButtonPressedModal" title="Edición de Comercio" content="Esta seguro que desea actualizar los datos?" (eventEmitter)="handleSaveButton($event)"></app-modal>
-	</div>
+
+	<!-- Modal para CRUD de Deliveries -->
+	<app-modal type="crudDelivery" [show]="selectedDelivery" title="Edición de Comercio" content="" (eventEmitter)="handleBackButton($event)"></app-modal>
+
 </div>

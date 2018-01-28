@@ -38,4 +38,128 @@
       </div>
     </div>
   </div>
+
+  <!-- (CRUD Delivery) -->
+  <div class="modal fade" bsModal #crudDelivery="bs-modal" [config]="{backdrop: 'static'}" tabindex="-3" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" aria-label="Close" (click)="close()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h4 class="modal-title">{{title}}</h4>
+        </div>      
+        <div class="modal-body">
+          <form class="form-horizontal" role="form">
+            <div class="row">
+              <div class="col-md-6 mb-4">
+                <legend>Datos administrativos</legend>    
+                <div class="control-group">
+                  <label for="concept" class="control-label">Nombre</label>
+                  <div class="controls">
+                    <input type="text" class="form-control" id="name" name="name">
+                  </div>
+                </div>
+                <div class="control-group">
+                  <label for="concept" class="control-label">Tel&eacute;fono</label>
+                  <div class="controls">
+                    <input type="text" class="form-control" id="telephoneNumber" name="telephoneNumber">
+                  </div>
+                </div>      
+                <div class="control-group">
+                  <label for="concept" class="control-label">Descripci&oacute;n</label>
+                  <div class="controls">
+                    <textarea class="form-control" id="description" name="description"></textarea>
+                  </div>
+                </div>
+                <div class="control-group">
+                  <label for="concept" class="control-label">Especialidades</label>
+                  <div class="controls">
+                    <textarea class="form-control" id="specialities" name="specialities"></textarea>
+                  </div>
+                </div>
+                <div class="control-group">
+                  <label for="concept" class="control-label">Direccion</label>
+                  <div class="controls">
+                    <input type="text" class="form-control" id="address" name="address">
+                  </div>
+                </div>  
+                <br>
+                <div class="control-group">
+                  <label for="concept" class="control-label">Horario desde</label>
+                  <div class="d-inline-block">
+                    <input type="time" class="form-control" value="" id="openingTime" name="openingTime">
+                  </div>
+                  <label for="concept" class="control-label">hasta</label>
+                  <div class="d-inline-block">
+                    <input type="time" class="form-control" value="" id="closingTime" name="closingTime">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6 mb-4">
+                <legend>Contacto comercial</legend>
+                <div class="control-group">
+                  <label for="concept" class="control-label">Nombre</label>
+                  <div class="controls">
+                    <input type="text" class="form-control" id="name" name="name">
+                  </div>
+                  </div>
+                  <div class="control-group">
+                    <label for="concept" class="control-label">Apellido</label>
+                    <div class="controls">
+                      <input type="text" class="form-control" id="lastName" name="las">
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label for="concept" class="control-label">Telefono</label>
+                    <div class="controls">
+                      <input type="text" class="form-control" id="telephoneNumber" name="telephoneNumber">
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label for="concept" class="control-label">Mail</label>
+                    <div class="controls">
+                      <input type="text" class="form-control" id="email" name="email">
+                    </div>
+                  </div>  
+                </div>
+                <div class="col-md-6 mb-4">
+                  <legend>Contacto comercial</legend>
+                  <div class="control-group">
+                    <label for="concept" class="control-label"><input type="checkbox">Idem contacto administrativo</label>
+                  </div>
+                  <div class="control-group">
+                    <label for="concept" class="control-label">Nombre</label>
+                          <div class="controls">
+                            <input type="text" class="form-control" id="name" name="name">
+                        </div>
+                  </div>
+                  <div class="control-group">
+                    <label for="concept" class="control-label">Apellido</label>
+                    <div class="controls">
+                      <input type="text" class="form-control" id="lastName" name="las">
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label for="concept" class="control-label">Telefono</label>
+                    <div class="controls">
+                      <input type="text" class="form-control" id="telephoneNumber" name="telephoneNumber">
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label for="concept" class="control-label">Mail</label>
+                    <div class="controls">
+                      <input type="text" class="form-control" id="email" name="email">
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </form>
+      </div>
+    </div>    
+  </div>
+
   <input type="hidden" name="show" [ngModel]="show">
