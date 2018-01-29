@@ -5,49 +5,49 @@ export class InMemUserService implements InMemoryDbService {
     let deliveries = [
 		{
 	      "id":1,
-	      "name":"Pizza Bender",
-	      "description":"Pizzeria de mala muerte",
-	      "specialities": "Pizza de Cannabis",
-	      "address": "Calle Falsa 123",
-	      "openingTime": 20,
-	      "closingTime": 1,
+	      "name":"Sushi Pop",
+	      "description":"comida japonesa",
+	      "specialities": "Sushi",
+	      "address": "Maipu 954",
+	      "openingTime": 12,
+	      "closingTime": 15,
 	      "phoneNumber":"4555-4455",
 	      "admContact": {
-	      	"name": "Hermi",
-	      	"lastName": "Marmota",
-	      	"phoneNumber": "4431-1122",
-	      	"email": "hermi@hermi.com",
+	      	"name": "Juan",
+	      	"lastName": "Rodriguez",
+	      	"phoneNumber": "4555-4455",
+	      	"email": "juan.rodriguez@sushipop.com",
 	      	"isAdmContact": true
 	      },
 	      "commercialContact": {
-	      	"name": "Hermi",
-	      	"lastName": "Marmota",
-	      	"phoneNumber": "5555-3322",
-	      	"email": "hermi@hermi.com",
+          "name": "Juan",
+          "lastName": "Rodriguez",
+          "phoneNumber": "4555-4455",
+          "email": "juan.rodriguez@sushipop.com",
 	      	"isAdmContact": false
 	      }
 		},
 		{
 	      "id":2,
-	      "name":"Helados Chupala",
-	      "description":"Heladeria de Barrio",
-	      "specialities": "Helados con babosas",
-	      "address": "x Colectora",
-	      "phoneNumber":"4155-3333",
-	      "openingTime": 20,
-	      "closingTime": 1,
+	      "name":"Heladeria Freddo",
+	      "description":"Cremas Heladas",
+	      "specialities": "Postres Helados",
+	      "address": "Av. Cabildo 3510",
+	      "phoneNumber":"4810-2100",
+	      "openingTime": 12,
+	      "closingTime": 23,
 	      "admContact": {
-	      	"name": "Bender",
-	      	"lastName": "Rodriguez",
-	      	"phoneNumber": "1231-0001",
-	      	"email": "Bender@Bender.com",
+	      	"name": "Pablo",
+	      	"lastName": "Diaz",
+	      	"phoneNumber": 4810-2100",
+	      	"email": "pdiaz@freddo.com.ar",
 	      	"isAdmContact": true
 	      },
 	      "commercialContact": {
-	      	"name": "Bender",
-	      	"lastName": "Rodriguez",
-	      	"phoneNumber": "1231-0001",
-	      	"email": "Bender@Bender.com",
+	      	"name": "Laura",
+	      	"lastName": "Casas",
+	      	"phoneNumber": "4325-0001",
+	      	"email": "lcasas@freddo.com.ar",
 	      	"isAdmContact": false
 	      }
 		}
