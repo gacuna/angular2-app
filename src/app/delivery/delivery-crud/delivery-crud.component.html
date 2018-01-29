@@ -2,121 +2,127 @@
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
+        <h4 class="modal-title">{{title}}</h4>
         <button type="button" class="close" aria-label="Close" (click)="close()">
           <span aria-hidden="true">&times;</span>
         </button>
-        <h4 class="modal-title">{{title}}</h4>
+
       </div>
       <div class="modal-body">
-        <form class="form-horizontal" role="form" #deliveryForm="ngForm" *ngIf="model">
-          <div class="row">
-            <div class="col-md-6 mb-4">
+        <form class="form" role="form" #deliveryForm="ngForm">
+
               <legend>Datos administrativos</legend>
-              <div class="control-group">
-                <label for="concept" class="control-label">Nombre</label>
-                <div class="controls">
-                  <input type="text" class="form-control" [(ngModel)]="model.name" #name="ngModel" name="name"
-                    [ngClass]="{'has-error' : !name.valid && name.touched}" maxlength="50" required>
-                </div>
-              </div>
-              <div class="control-group">
-                <label for="concept" class="control-label">Tel&eacute;fono</label>
-                <div class="controls">
-                  <input type="text" class="form-control" [(ngModel)]="model.phoneNumber" #telephoneNumber="ngModel" name="telephoneNumber">
-                </div>
-              </div>
-              <div class="control-group">
-                <label for="concept" class="control-label">Descripci&oacute;n</label>
-                <div class="controls">
-                  <textarea class="form-control" [(ngModel)]="model.description" #description="ngModel" name="description"></textarea>
-                </div>
-              </div>
-              <div class="control-group">
-                <label for="concept" class="control-label">Especialidades</label>
-                <div class="controls">
-                  <textarea class="form-control" [(ngModel)]="model.specialities" #specialities="ngModel" name="specialities"></textarea>
-                </div>
-              </div>
-              <div class="control-group">
-                <label for="concept" class="control-label">Direccion</label>
-                <div class="controls">
-                  <input type="text" class="form-control" [(ngModel)]="model.address" #address="ngModel" name="address">
+              <div class="form-inline" align="left">
+                <label for="name" class="control-label col-sm-2">Nombre</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="name" [(ngModel)]="model.name" #name="ngModel" name="name">
                 </div>
               </div>
               <br>
-              <div class="control-group">
-                <label for="concept" class="control-label">Horario desde</label>
-                <div class="d-inline-block">
-                  <input type="time" class="form-control" value="" [(ngModel)]="model.openingTime" #openingTime="ngModel" name="openingTime">
-                </div>
-                <label for="concept" class="control-label">hasta</label>
-                <div class="d-inline-block">
-                  <input type="time" class="form-control" value="" [(ngModel)]="model.closingTime" #closingTime="ngModel" name="closingTime">
+              <div class="form-inline">
+                <label for="telephoneNumber" class="control-label col-sm-2">Tel&eacute;fono</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="telephoneNumber" [(ngModel)]="model.phoneNumber" #name="ngModel" name="telephoneNumber">
                 </div>
               </div>
-            </div>
-          </div>
+              <br>
+              <div class="form-inline">
+                <label for="description" class="control-label col-sm-2">Descripci&oacute;n</label>
+                <div class="col-sm-10">
+                  <textarea class="form-control" id="description" [(ngModel)]="model.description" #name="ngModel" name="description"></textarea>
+                </div>
+              </div>
+              <br>
+              <div class="form-inline">
+                <label for="concept" class="control-label col-sm-2">Especialidades</label>
+                <div class="col-sm-10">
+                  <textarea class="form-control" id="specialities" [(ngModel)]="model.specialities" #name="ngModel" name="specialities"></textarea>
+                </div>
+              </div>
+              <br>
+              <div class="form-inline">
+                <label for="address" class="control-label col-sm-2">Direccion</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="address" [(ngModel)]="model.address" #name="ngModel" name="address">
+                </div>
+              </div>
+
+              <br>
+              <div class="form-inline" id="timeRow">
+                <label for="openingTime" class="control-label col-sm-2">Horario </label>
+                <div class="d-inline-block">
+                  <input type="time" class="form-control" value="" id="openingTime" [(ngModel)]="model.openingTime" #name="ngModel" name="openingTime">
+                </div>
+                <label for="closingTime" class="control-label col-sm-2">hasta</label>
+                <div class="d-inline-block">
+                  <input type="time" class="form-control" value="" id="closingTime" [(ngModel)]="model.closingTime" #name="ngModel" name="closingTime">
+                </div>
+              </div>
+
 
           <div class="row">
             <div class="col-md-6 mb-4">
               <legend>Contacto comercial</legend>
-              <div class="control-group">
-                <label for="concept" class="control-label">Nombre</label>
-                <div class="controls">
-                  <input type="text" class="form-control" [(ngModel)]="model.admContact.name" #admContactName="ngModel" name="admContactName">
-                </div>
-                </div>
-                <div class="control-group">
-                  <label for="concept" class="control-label">Apellido</label>
-                  <div class="controls">
-                    <input type="text" class="form-control" [(ngModel)]="model.admContact.lastName" #admContactLastName="ngModel" name="admContactLastName">
+                <div class="form-inline">
+                  <label for="name" class="control-label col-sm-2">Nombre</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="name" [(ngModel)]="model.admContact.name" #name="ngModel" name="name">
                   </div>
                 </div>
-                <div class="control-group">
-                  <label for="concept" class="control-label">Telefono</label>
-                  <div class="controls">
-                    <input type="text" class="form-control" [(ngModel)]="model.admContact.phoneNumber" #admContactTelephoneNumber="ngModel" name="admContactTelephoneNumber">
+                <br>
+                <div class="form-inline">
+                  <label for="lastName" class="control-label col-sm-2">Apellido</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="lastName" [(ngModel)]="model.admContact.lastName" #name="ngModel" name="las">
                   </div>
                 </div>
-                <div class="control-group">
-                  <label for="concept" class="control-label">Mail</label>
-                  <div class="controls">
-                    <input type="text" class="form-control" [(ngModel)]="model.admContact.email" #admContactEmail="ngModel" name="admContactEmail"
-                      [ngClass]="{'has-error' : !admContactEmail.valid && admContactEmail.touched}" maxlength="50"
-                      pattern="^(([^<>()\[\]\\.,;:\s@]+(\.[^<>()\[\]\\.,;:\s@]+)*)|(.+))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$" required>
+                <br>
+                <div class="form-inline">
+                  <label for="telephoneNumber" class="control-label col-sm-2">Telefono</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="telephoneNumber" [(ngModel)]="model.admContact.phoneNumber" #name="ngModel" name="telephoneNumber">
                   </div>
                 </div>
+                <br>
+                <div class="form-inline">
+                  <label for="email" class="control-label col-sm-2">Mail</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="email" [(ngModel)]="model.admContact.email" #name="ngModel" name="email">
+                  </div>
+                </div>
+                <br>
               </div>
               <div class="col-md-6 mb-4">
                 <legend>Contacto comercial</legend>
-                <div class="control-group">
+                <div class="">
                   <label for="concept" class="control-label">
                     <input type="checkbox" [(ngModel)]="isEqualsAdmContact" name="isEqualsAdmContact" (click)="cloneAdminContact()">Idem contacto administrativo</label>
                 </div>
-                <div class="control-group">
-                  <label for="concept" class="control-label">Nombre</label>
-                        <div class="controls">
-                          <input type="text" class="form-control" [(ngModel)]="model.commercialContact.name" #commercialContactName="ngModel" name="commercialContactName">
+                <div class="form-inline">
+                  <label for="name" class="control-label col-sm-2">Nombre</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="name" [(ngModel)]="model.commercialContact.name" #name="ngModel" name="name">
                       </div>
                 </div>
-                <div class="control-group">
-                  <label for="concept" class="control-label">Apellido</label>
-                  <div class="controls">
-                    <input type="text" class="form-control" [(ngModel)]="model.commercialContact.lastName" #commercialContactLastName="ngModel" name="commercialContactLastName">
+                <br>
+                <div class="form-inline">
+                  <label for="lastName" class="control-label col-sm-2">Apellido</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="lastName" [(ngModel)]="model.commercialContact.lastName" #name="ngModel" name="las">
                   </div>
                 </div>
-                <div class="control-group">
-                  <label for="concept" class="control-label">Telefono</label>
-                  <div class="controls">
-                    <input type="text" class="form-control" [(ngModel)]="model.commercialContact.phoneNumber" #commercialContactTelephoneNumber="ngModel" name="commercialContactTelephoneNumber">
+                <br>
+                <div class="form-inline">
+                  <label for="telephoneNumber" class="control-label col-sm-2">Telefono</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="telephoneNumber" [(ngModel)]="model.commercialContact.phoneNumber" #name="ngModel" name="telephoneNumber">
                   </div>
                 </div>
-                <div class="control-group">
-                  <label for="concept" class="control-label">Mail</label>
-                  <div class="controls">
-                    <input type="text" class="form-control" [(ngModel)]="model.commercialContact.email" #commercialContactEmail="ngModel" name="commercialContactEmail"
-                    [ngClass]="{'has-error' : !model.commercialContact.email.valid && model.commercialContact.email.touched}" maxlength="50"
-                    pattern="^(([^<>()\[\]\\.,;:\s@]+(\.[^<>()\[\]\\.,;:\s@]+)*)|(.+))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$" required>
+                <br>
+                <div class="form-inline">
+                  <label for="email" class="control-label col-sm-2">Mail</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="email" [(ngModel)]="model.commercialContact.email" #name="ngModel" name="email">
                   </div>
                 </div>
               </div>
@@ -130,8 +136,8 @@
     </div>
 
     <div class="modal-footer">
-      <button type="button" (click)="cancel()" data-dismiss="okCancelModal" class="btn">Cancelar</button>
-      <button type="button" (click)="confirm()" class="btn">Guardar</button>
+      <button type="button" (click)="cancel()" data-dismiss="okCancelModal" class="btn btn-danger">Cancelar</button>
+      <button type="button" (click)="confirm()" class="btn btn-primary">Guardar</button>
     </div>
   </div>
 </div>
