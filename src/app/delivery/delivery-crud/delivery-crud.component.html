@@ -27,30 +27,30 @@
               <div class="control-group">
                 <label for="concept" class="control-label">Descripci&oacute;n</label>
                 <div class="controls">
-                  <textarea class="form-control" id="description" name="description"></textarea>
+                  <textarea class="form-control" id="description" [(ngModel)]="model.description" #name="ngModel" name="description"></textarea>
                 </div>
               </div>
               <div class="control-group">
                 <label for="concept" class="control-label">Especialidades</label>
                 <div class="controls">
-                  <textarea class="form-control" id="specialities" name="specialities"></textarea>
+                  <textarea class="form-control" id="specialities" [(ngModel)]="model.specialities" #name="ngModel" name="specialities"></textarea>
                 </div>
               </div>
               <div class="control-group">
                 <label for="concept" class="control-label">Direccion</label>
                 <div class="controls">
-                  <input type="text" class="form-control" id="address" name="address">
+                  <input type="text" class="form-control" id="address" [(ngModel)]="model.address" #name="ngModel" name="address">
                 </div>
               </div>
               <br>
               <div class="control-group">
                 <label for="concept" class="control-label">Horario desde</label>
                 <div class="d-inline-block">
-                  <input type="time" class="form-control" value="" id="openingTime" name="openingTime">
+                  <input type="time" class="form-control" value="" id="openingTime" [(ngModel)]="model.openingTime" #name="ngModel" name="openingTime">
                 </div>
                 <label for="concept" class="control-label">hasta</label>
                 <div class="d-inline-block">
-                  <input type="time" class="form-control" value="" id="closingTime" name="closingTime">
+                  <input type="time" class="form-control" value="" id="closingTime" [(ngModel)]="model.closingTime" #name="ngModel" name="closingTime">
                 </div>
               </div>
             </div>
@@ -62,25 +62,25 @@
               <div class="control-group">
                 <label for="concept" class="control-label">Nombre</label>
                 <div class="controls">
-                  <input type="text" class="form-control" id="name" name="name">
+                  <input type="text" class="form-control" id="name" [(ngModel)]="model.admContact.name" #name="ngModel" name="name">
                 </div>
                 </div>
                 <div class="control-group">
                   <label for="concept" class="control-label">Apellido</label>
                   <div class="controls">
-                    <input type="text" class="form-control" id="lastName" name="las">
+                    <input type="text" class="form-control" id="lastName" [(ngModel)]="model.admContact.lastName" #name="ngModel" name="las">
                   </div>
                 </div>
                 <div class="control-group">
                   <label for="concept" class="control-label">Telefono</label>
                   <div class="controls">
-                    <input type="text" class="form-control" id="telephoneNumber" name="telephoneNumber">
+                    <input type="text" class="form-control" id="telephoneNumber" [(ngModel)]="model.admContact.phoneNumber" #name="ngModel" name="telephoneNumber">
                   </div>
                 </div>
                 <div class="control-group">
                   <label for="concept" class="control-label">Mail</label>
                   <div class="controls">
-                    <input type="text" class="form-control" id="email" name="email">
+                    <input type="text" class="form-control" id="email" [(ngModel)]="model.admContact.email" #name="ngModel" name="email">
                   </div>
                 </div>
               </div>
@@ -92,25 +92,25 @@
                 <div class="control-group">
                   <label for="concept" class="control-label">Nombre</label>
                         <div class="controls">
-                          <input type="text" class="form-control" id="name" name="name">
+                          <input type="text" class="form-control" id="name" [(ngModel)]="model.commercialContact.name" #name="ngModel" name="name">
                       </div>
                 </div>
                 <div class="control-group">
                   <label for="concept" class="control-label">Apellido</label>
                   <div class="controls">
-                    <input type="text" class="form-control" id="lastName" name="las">
+                    <input type="text" class="form-control" id="lastName" [(ngModel)]="model.commercialContact.lastName" #name="ngModel" name="las">
                   </div>
                 </div>
                 <div class="control-group">
                   <label for="concept" class="control-label">Telefono</label>
                   <div class="controls">
-                    <input type="text" class="form-control" id="telephoneNumber" name="telephoneNumber">
+                    <input type="text" class="form-control" id="telephoneNumber" [(ngModel)]="model.commercialContact.phoneNumber" #name="ngModel" name="telephoneNumber">
                   </div>
                 </div>
                 <div class="control-group">
                   <label for="concept" class="control-label">Mail</label>
                   <div class="controls">
-                    <input type="text" class="form-control" id="email" name="email">
+                    <input type="text" class="form-control" id="email" [(ngModel)]="model.commercialContact.email" #name="ngModel" name="email">
                   </div>
                 </div>
               </div>
