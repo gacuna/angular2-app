@@ -8,5 +8,9 @@
 
 legend {
 	padding-bottom: 10px;
-	border-bottom: 1px solid #c0c1c1;
+	border-bottom: 1px solid #eee;
+}
+
+#timeRow {
+	padding-bottom: 20px;
 }
