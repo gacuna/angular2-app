@@ -1,5 +1,6 @@
 import { Component, OnInit, OnChanges, Input, Output, ViewChild, EventEmitter } from '@angular/core';
 import { ModalDirective } from 'ngx-bootstrap';
+import { Delivery, Contact } from '../../domain/model';
 
 @Component({
   selector: 'app-delivery-crud',
@@ -9,7 +10,7 @@ import { ModalDirective } from 'ngx-bootstrap';
 export class DeliveryCrudComponent implements OnInit {
 
   @Input()
-  show: boolean;
+  entity: Delivery;
 
   @Input()
   title: string;
@@ -30,7 +31,7 @@ export class DeliveryCrudComponent implements OnInit {
   ngOnInit() {}
 
   ngOnChanges() {
-    if (this.show) {
+    if (this.entity) {
       this.crudDeliveryModal.show();
     }
   }

@@ -14,7 +14,6 @@ import { FilterComponent } from './filter/filter.component';
 import { DeliveryComponent } from './delivery/delivery.component';
 
 // Services
-import { UsersService } from './services/users.service';
 import { DeliveryService } from './services/delivery.service';
 import { ModalComponent } from './modal/modal.component';
 import { InMemUserService } from './services/in-memory-data-service.service';
@@ -36,7 +35,7 @@ import { DeliveryCrudComponent } from './delivery/delivery-crud/delivery-crud.co
     ModalModule.forRoot(),
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [UsersService, DeliveryService],
+  providers: [DeliveryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
