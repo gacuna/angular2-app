@@ -8,31 +8,20 @@
 		<div class="col-12">
 			<table class="table table-hover delivery-table">
 				<thead>
-					<th>Id</th>
 					<th>Nombre</th>
-					<th>Descripci&oacute;n</th>
-					<th>Especialidad</th>
 					<th>Direcci&oacute;n</th>
-					<th>Horario</th>
 					<th>Tel&eacute;fono</th>
-					<th>Contacto Administrativo</th>
-					<th>Contacto Comercial</th>
-					<th class="text-center">Editar</th>
-					<th class="text-center">Eliminar</th>
+					<th class="text-center"></th>
 				</thead>
 				<tbody>
-					<tr *ngFor="let delivery of deliveries">
-						<td>{{delivery.id}}</td>
-						<td>{{delivery.name}}</td>
-						<td>{{delivery.description}}</td>
-						<td>{{delivery.specialities}}</td>
-						<td>{{delivery.address}}</td>
-						<td>{{delivery.openingTime}} a {{delivery.closingTime}}</td>
-						<td>{{delivery.phoneNumber}}</td>
-						<td>{{delivery.admContact.name}} {{delivery.admContact.lastName}}</td>
-						<td>{{delivery.commercialContact.name}} {{delivery.commercialContact.lastName}}</td>
-						<td class="text-center"><i (click)="edit(delivery)" class="fa fa-pencil" aria-hidden="true"></i></td>
-						<td class="text-center"><i (click)="delete(delivery)" class="fa fa-trash-o" aria-hidden="true"></i></td>						
+					<tr *ngFor="let delivery of deliveries">				
+						<td>{{delivery.name}}</td>			
+						<td>{{delivery.address}}</td>				
+						<td>{{delivery.phoneNumber}}</td>				
+						<td class="text-center">
+							<button class="btn btn-primary" (click)="edit(delivery)"><i class="fa fa-pencil" aria-hidden="true"></i> </button>
+							<button class="btn btn-danger" (click)="delete(delivery)"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+						</td>					
 					</tr>
 				</tbody>
 			</table>
