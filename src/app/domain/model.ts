@@ -19,11 +19,20 @@ export class Delivery {
 }
 
 export class Contact {
-  name: string = "";
-  lastName: string = "";
-  phoneNumber: string = "";
-  email: string = "";
-  isAdmContact: boolean = false;
+  name: string;
+  lastName: string;
+  phoneNumber: string;
+  email: string;
+  isAdmContact: boolean;
+
+  constructor() {
+    this.name = "";
+    this.lastName = "";
+    this.phoneNumber = "";
+    this.email = "";
+    this.isAdmContact = false;
+  }
+
 }
 
 

@@ -25,10 +25,12 @@ export class DeliveryCrudComponent implements OnInit {
 
   backButtonPressedModal: boolean = false;
   saveButtonPressedModal: boolean = false;
+  isEqualsAdmContact: boolean;
 
   constructor(private deliveryService: DeliveryService) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
   ngOnChanges() {
     if (this.model) {
@@ -67,6 +69,17 @@ export class DeliveryCrudComponent implements OnInit {
         });
       }
     }
+  }
+
+  cloneAdminContact() {
+    console.log(`${this.isEqualsAdmContact}`);
+    if (this.isEqualsAdmContact) {
+      this.model.commercialContact = this.model.admContact;
+      this.model.commercialContact.isAdmContact = false;
+    } else {
+      this.model.commercialContact = new Contact();
+    }
+    //this.isEqualsAdmContact = !this.isEqualsAdmContact;
   }
 
   //Click boton cerrar
