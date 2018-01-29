@@ -10,14 +10,17 @@ export class Delivery {
   phoneNumber: string;
   admContact: Contact;
   commercialContact: Contact;
+
+  constructor() {}
+
 }
 
 export class Contact {
-  name: string;
-  lastName: string;
-  phoneNumber: string;
-  email: string;
-  isAdmContact: boolean;
+  name: string = "";
+  lastName: string = "";
+  phoneNumber: string = "";
+  email: string = "";
+  isAdmContact: boolean = false;
 }
 
 

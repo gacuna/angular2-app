@@ -11,11 +11,9 @@ import { DeliveryService } from '../../services/delivery.service';
 export class DeliveryCrudComponent implements OnInit {
 
   @Input()
-  entity: Delivery;
-
-  @Input()
   title: string;
 
+  @Input()
   model: Delivery;
 
   @Output()
@@ -30,13 +28,10 @@ export class DeliveryCrudComponent implements OnInit {
 
   constructor(private deliveryService: DeliveryService) { }
 
-  ngOnInit() {
-    this.model = new Delivery();
-  }
+  ngOnInit() {}
 
   ngOnChanges() {
-    if (this.entity) {
-      this.model = this.entity;
+    if (this.model) {
       this.crudDeliveryModal.show();
     }
   }
@@ -56,7 +51,7 @@ export class DeliveryCrudComponent implements OnInit {
     this.saveButtonPressedModal = false;
 
     if (action == "confirm") {
-      this.deliveryService.update(this.entity).subscribe(res => {
+      this.deliveryService.update(this.model).subscribe(res => {
         this.hide();
         this.eventEmitter.emit("confirm");
       }, err => {
