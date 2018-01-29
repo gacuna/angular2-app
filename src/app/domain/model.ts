@@ -11,7 +11,10 @@ export class Delivery {
   admContact: Contact;
   commercialContact: Contact;
 
-  constructor() {}
+  constructor() {
+    this.admContact = new Contact();
+    this.commercialContact = new Contact();
+  }
 
 }
 

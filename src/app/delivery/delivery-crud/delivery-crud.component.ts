@@ -51,12 +51,21 @@ export class DeliveryCrudComponent implements OnInit {
     this.saveButtonPressedModal = false;
 
     if (action == "confirm") {
-      this.deliveryService.update(this.model).subscribe(res => {
-        this.hide();
-        this.eventEmitter.emit("confirm");
-      }, err => {
-        console.log('Hubo un error interno al guardar los datos del Comercio');
-      });
+      if (this.model.id) {
+        this.deliveryService.update(this.model).subscribe(res => {
+          this.hide();
+          this.eventEmitter.emit("confirm");
+        }, err => {
+          console.log('Hubo un error interno al guardar los datos del Comercio');
+        });
+      } else {
+        this.deliveryService.create(this.model).subscribe(res => {
+          this.hide();
+          this.eventEmitter.emit("confirm");
+        }, err => {
+          console.log('Hubo un error interno al guardar los datos del Comercio');
+        });
+      }
     }
   }
 

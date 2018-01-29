@@ -38,7 +38,7 @@ export class DeliveryComponent implements OnInit {
   }
 
   add() {
-  	this.selectedDelivery = undefined;
+  	this.selectedDelivery = new Delivery();
   }
 
   edit(delivery: Delivery) {
