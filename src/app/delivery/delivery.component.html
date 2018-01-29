@@ -1,17 +1,26 @@
 <div class="container">
-	<div class="row pt-3 justify-content-right">
+	<div class="page-header" id="header">
+		<h3>
+			<span>Listado de deliveries</span>
+			<button class="btn btn-primary" id="btnAdd" (click)="add()"><i class="fa fa-asterisk" aria-hidden="true"></i>
+				<span>Crear nuevo delivery</span>
+			</button>
+		</h3>
+	</div>
+
+	<div class="row pt-3 justify-content-right" *ngIf="!selectedDelivery">
 		<div class="col-12">
 			<app-filter [searchConditions]="searchConditions" [filter]="actualFilter" (filterEmitter)="searchDeliveries($event)"></app-filter>
 		</div>
 	</div>
 	<div class="row pt-3 justify-content-center">
 		<div class="col-12">
-			<table class="table table-hover delivery-table">
+			<table class="table table-hover">
 				<thead>
-					<th>Nombre</th>
-					<th>Direcci&oacute;n</th>
-					<th>Tel&eacute;fono</th>
-					<th class="text-center"></th>
+					<th scope="col">Nombre</th>
+					<th scope="col">Direcci&oacute;n</th>
+					<th scope="col">Tel&eacute;fono</th>
+					<th scope="col" class="text-center"></th>
 				</thead>
 				<tbody>
 					<tr *ngFor="let delivery of deliveries">
@@ -32,6 +41,6 @@
 	<app-delivery-crud [entity]="selectedDelivery" title="Edición de Comercio" content="" (eventEmitter)="handleAction($event)"></app-delivery-crud>
 
 	<!-- Modal para cuando se presiona el boton eliminar -->
-	<app-modal type="okCancel" [show]="deleteButtonPressedModal" title="Baja de Comercio" content="Esta seguro que desea eliminar el comercio?" (eventEmitter)="handleDeleteButton($event)"></app-modal>
+	<app-modal type="okCancel" [show]="deleteButtonPressed" title="Baja de Comercio" content="Esta seguro que desea eliminar el comercio?" (eventEmitter)="handleDeleteButton($event)"></app-modal>
 
 </div>

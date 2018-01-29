@@ -10,7 +10,6 @@ import { Delivery, SearchCondition, SearchFilter } from '../domain/model';
 export class DeliveryComponent implements OnInit {
 
   selectedDelivery: Delivery;
-  deliveryToDelete: Delivery;
 
   deliveries: Array<Delivery>;
   searchConditions: Array<SearchCondition>;
@@ -19,7 +18,9 @@ export class DeliveryComponent implements OnInit {
 
   backButtonPressedModal: boolean;
   saveButtonPressedModal: boolean;
-  deleteButtonPressedModal: boolean;
+
+  addButtonPressed: boolean;
+  deleteButtonPressed: boolean;
 
   errorMessage: string;
 
@@ -56,42 +57,22 @@ export class DeliveryComponent implements OnInit {
   }
 
   delete(delivery: Delivery) {
-    this.deliveryToDelete = delivery;
-    this.deleteButtonPressedModal = true;
+    this.selectedDelivery = delivery;
+    this.deleteButtonPressed = true;
   }
 
   handleAction(action: string) {
     console.log(`delivery action ${action}`);
-  }
 
-  private handleBackButton(action: string) {
-    this.backButtonPressedModal = false;
+    //TODO Aca poner la logica del emitter del CRUD
 
-    if (action == "confirm") {
-      this.selectedDelivery = undefined;
-      this.searchDeliveries(this.actualFilter);
-    }
-  }
-
-  private handleSaveButton(action: string) {
-    this.saveButtonPressedModal = false;
-
-    if (action == "confirm") {
-      this.deliveryService.update(this.selectedDelivery).subscribe(res => {
-        this.selectedDelivery = undefined;
-      }, err => {
-        this.errorMessage = 'Hubo un error interno al guardar los datos del Comercio';
-      });
-    } else {
-      this.selectedDelivery = undefined;
-    }
   }
 
   private handleDeleteButton(action: string) {
-    this.deleteButtonPressedModal = false;
+    this.deleteButtonPressed = false;
 
     if (action == "confirm") {
-      this.deliveryService.delete(this.deliveryToDelete).subscribe(res => {
+      this.deliveryService.delete(this.selectedDelivery).subscribe(res => {
         this.searchDeliveries(this.actualFilter);
       })
     }

@@ -1,6 +1,7 @@
 import { Component, OnInit, OnChanges, Input, Output, ViewChild, EventEmitter } from '@angular/core';
 import { ModalDirective } from 'ngx-bootstrap';
 import { Delivery, Contact } from '../../domain/model';
+import { DeliveryService } from '../../services/delivery.service';
 
 @Component({
   selector: 'app-delivery-crud',
@@ -26,7 +27,7 @@ export class DeliveryCrudComponent implements OnInit {
 
   saveButtonPressedModal: boolean = false;
 
-  constructor() { }
+  constructor(private deliveryService: DeliveryService) { }
 
   ngOnInit() {}
 
@@ -51,8 +52,12 @@ export class DeliveryCrudComponent implements OnInit {
     this.saveButtonPressedModal = false;
 
     if (action == "confirm") {
-      this.hide();
-      this.eventEmitter.emit("confirm");
+      this.deliveryService.update(this.entity).subscribe(res => {
+        this.hide();
+        this.eventEmitter.emit("confirm");
+      }, err => {
+        console.log('Hubo un error interno al guardar los datos del Comercio');
+      });
     }
   }
 
