@@ -16,9 +16,6 @@ export class DeliveryComponent implements OnInit {
 
   actualFilter: SearchFilter;
 
-  backButtonPressedModal: boolean;
-  saveButtonPressedModal: boolean;
-
   addButtonPressed: boolean;
   deleteButtonPressed: boolean;
 
@@ -40,14 +37,6 @@ export class DeliveryComponent implements OnInit {
     });
   }
 
-  back() {
-    this.backButtonPressedModal = true;
-  }
-
-  save() {
-    this.saveButtonPressedModal = true;
-  }
-
   add() {
   	this.selectedDelivery = undefined;
   }
@@ -64,8 +53,10 @@ export class DeliveryComponent implements OnInit {
   handleAction(action: string) {
     console.log(`delivery action ${action}`);
 
-    //TODO Aca poner la logica del emitter del CRUD
-
+    if (action == "confirm") {
+      this.selectedDelivery = undefined;
+      this.searchDeliveries(this.actualFilter);
+    }
   }
 
   private handleDeleteButton(action: string) {

@@ -16,6 +16,8 @@ export class DeliveryCrudComponent implements OnInit {
   @Input()
   title: string;
 
+  model: Delivery;
+
   @Output()
   eventEmitter = new EventEmitter<string>();
 
@@ -24,15 +26,17 @@ export class DeliveryCrudComponent implements OnInit {
   private _modalInstance: ModalDirective;
 
   backButtonPressedModal: boolean = false;
-
   saveButtonPressedModal: boolean = false;
 
   constructor(private deliveryService: DeliveryService) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.model = new Delivery();
+  }
 
   ngOnChanges() {
     if (this.entity) {
+      this.model = this.entity;
       this.crudDeliveryModal.show();
     }
   }
